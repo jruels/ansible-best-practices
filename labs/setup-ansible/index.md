@@ -75,20 +75,6 @@ ssh <node ip address>
 
 
 
-## Confirm Ansible can connect
-
-Use the `setup` module to confirm Ansible can connect 
-
-Run the following as the `ansible` user on the control node
-
-```
-ansible 
-```
-
-
-
-
-
 ## Create a Simple Ansible Inventory
 
 Next, we'll create a simple Ansible inventory on the control node in `/home/ansible/inventory` containing `node1` and `node2`.
