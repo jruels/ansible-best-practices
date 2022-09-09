@@ -123,7 +123,8 @@ Redirect the output of a successful command to `/home/ansible/output`.
 To verify each node, run the following as the `ansible` user from the control host:
 
 ```
-ansible -i /home/ansible/inventory node1 -m ping ansible -i /home/ansible/inventory node2 -m ping 
+ansible -i /home/ansible/inventory node1 -m ping 
+ansible -i /home/ansible/inventory node2 -m ping 
 ```
 
 To redirect output of a successful command to `/home/ansible/output`:
