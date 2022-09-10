@@ -15,7 +15,7 @@ Log into the control node as the `ansible` user.
 Run the following commands to add the database servers to  `/home/ansible/inventory`:
 
 ```
-[dbsystems]
+echo "[dbsystems]" >> /home/ansible/inventory
 echo "db1 ansible_host=<IP of node1 from spreadsheet>" >> /home/ansible/inventory 
 echo "db2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/inventory 
 ```
