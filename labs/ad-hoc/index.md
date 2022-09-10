@@ -1,0 +1,88 @@
+# Ad-Hoc Ansible Commands
+
+## The Scenario
+
+Some consultants will be performing audits on a number of systems in our company's environment. We've got to create the user accounts listed in */home/ansible/userlist.txt* and set up the provided public keys for their accounts. The security team has built a jump host for the consultants to access production systems and provided us with the full key-pair so we can set up and test the connection. All hosts in `dbsystems` will need that public key installed so the consultants may use key-pair authentication to access the systems. We must also ensure the `auditd` service is enabled and running on all systems.
+
+
+
+## Get Logged In and Setup Inventory
+
+Log into the control node as the `ansible` user.
+
+
+
+Run the following commands to add the database servers to  `/home/ansible/inventory`:
+
+```
+[dbsystems]
+echo "db1 ansible_host=<IP of node1 from spreadsheet>" >> /home/ansible/inventory 
+echo "db2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/inventory 
+```
+
+
+
+## User Accounts File
+
+Copy the user accounts file from the lab directory to `/home/ansible/userlist.txt`
+
+```
+sudo cp /home/ec2-user/ansible-best-practices/labs/ad-hoc/files/userlist.txt /home/ansible/userlist.txt
+```
+
+
+
+## Create the User Accounts Noted in `/home/ansible/userlist.txt`
+
+If we read the `userlist.txt` file in our home directory, we'll see `consultant` and `supervisor`. Those are the two new user accounts we have to create:
+
+```
+ansible -i /home/ansible/inventory dbsystems -b -m user -a "name=consultant" 
+ansible -i /home/ansible/inventory dbsystems -b -m user -a "name=supervisor" 
+```
+
+
+
+## Create keys for users
+
+Create keys for the `consultant` and `supervisor` users.
+
+```
+mkdir -p /home/ansible/keys/{consultant,supervisor}/.ssh
+```
+
+
+
+Generate SSH key for `consultant` and `supervisor` users.
+
+```
+ssh-keygen -f /home/ansible/keys/consultant/.ssh/id_rsa
+ssh-keygen -f /home/ansible/keys/supervisor/.ssh/id_rsa
+```
+
+Create the `authorized_keys` files
+
+```
+cat /home/ansible/keys/consultant/.ssh/id_rsa.pub > /home/ansible/keys/consultant/authorized_keys
+cat /home/ansible/keys/supervisor/.ssh/id_rsa.pub > /home/ansible/keys/supervisor/authorized_keys
+```
+
+
+
+## Place Key Files in the Correct Location, `/home/$USER/.ssh/authorized_keys`, on Hosts in `dbsystems`
+
+```
+ansible -i /home/ansible/inventory dbsystems -b -m file -a "path=/home/consultant/.ssh state=directory owner=consultant group=consultant mode=0755" 
+ansible -i /home/ansible/inventory dbsystems -b -m copy -a "src=/home/ansible/keys/consultant/authorized_keys dest=/home/consultant/.ssh/authorized_keys mode=0600 owner=consultant group=consultant" ansible -i /home/ansible/inventory dbsystems -b -m file -a "path=/home/supervisor/.ssh state=directory owner=supervisor group=supervisor mode=0755"
+ansible -i /home/ansible/inventory dbsystems -b -m copy -a "src=/home/ansible/keys/supervisor/authorized_keys dest=/home/supervisor/.ssh/authorized_keys mode=0600 owner=supervisor group=supervisor" 
+```
+
+## Ensure `auditd` Is Enabled and Running on All Hosts
+
+```
+ansible -i /home/ansible/inventory dbsystems -b -m service -a "name=auditd state=started enabled=yes" 
+```
+
+## Conclusion
+
+We can see, by watching output from those commands, that they all ran successfully. Congratulations!

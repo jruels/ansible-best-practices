@@ -12,7 +12,7 @@ Slides are provided by the instructor.
 ## Labs   
 ### Day 1      
 Lab 1: [Install and Configure Ansible](labs/setup-ansible/)   
-Lab 1: [Deploy Ansible Automation Platform](labs/install-aap/)   
+Lab 2: [Get familiar with the Ansible ad-hoc](labs/ad-hoc/)   
 
 ### Day 2      
 Lab 2: [Inventories, credentials, and ad-hoc commands](labs/aap-inventory-creds-ad-hoc/)   
