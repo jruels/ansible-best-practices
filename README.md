@@ -14,7 +14,7 @@ Slides are provided by the instructor.
 Lab 1: [Install and Configure Ansible](labs/setup-ansible/)   
 Lab 2: [Ansible Inventory](labs/inventory/)   
 Lab 3: [Get familiar with Ansible ad-hoc](labs/ad-hoc/)   
-Lab 4: [Ansible Playbook Fundamentals](labs/playbook-basics/)   
+Lab 4: [Ansible Playbook Fundamentals](labs/playbook-fun/)   
 
 ### Day 2      
 Lab 2: [Inventories, credentials, and ad-hoc commands](labs/aap-inventory-creds-ad-hoc/)   
