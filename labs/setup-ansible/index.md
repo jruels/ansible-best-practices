@@ -49,7 +49,7 @@ Become the `ansible` user:
 sudo su - ansible 
 ```
 
-Use `ssh-keygen`, accepting defeaults, to create the `.ssh` directory
+Use `ssh-keygen`, accepting defaults, to create the `.ssh` directory
 
 ```
 ssh-keygen
@@ -70,7 +70,7 @@ chmod 600 /home/ansible.ssh/authorized_keys
 Confirm you can ssh as the `ansible` user from the control node to the managed nodes
 
 ```
-ssh <node ip address>
+ssh <IP of each node from the spreadsheet>
 ```
 
 
@@ -93,7 +93,7 @@ echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/invent
 
 Now, we'll configure sudo access for Ansible on `node1` and `node2` such that Ansible may use sudo for any command with no password prompt.
 
-Log in to `node1` as `centos` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
+Log in to each managed node as `centos` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
 
 ```
 ssh centos@node1 
@@ -109,10 +109,10 @@ ansible    ALL=(ALL)       NOPASSWD: ALL
 Enter:
 
 ```
-logout 
+exit
 ```
 
-Repeat these steps for `node2`, and then back out to the control node.
+Repeat these steps for `node2`
 
 ## Verify Each Managed Node Is Accessible
 
