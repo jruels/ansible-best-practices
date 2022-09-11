@@ -6,7 +6,10 @@ Your coworker has created a simple script and an Ansible playbook to create an a
 
 ## Log into the controller manager
 
-1. Log in to the server as the `ansible` user using the provided credentials 
+1. Log in to the server as `ec2-user` and sudo to the `ansible` user.
+```
+sudo su - ansible
+```
 
 ### Prerequisites
 
@@ -25,16 +28,11 @@ ansible-galaxy collection install community.general
 ```
 
 
-
 Create and enter a working directory
 
 ```
 mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 ```
-
-
-
-
 
 ### Configure the `media` Host Group to Contain `media1` and `media2`
 
@@ -58,7 +56,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 
 
-### Define Variables for `media` with Their Accompanying Values
+### Define variables for `media` with their accompanying values
 
 1. Create a `group_vars` directory:
 
@@ -87,7 +85,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 
 
-### Configure the `webservers` Host Group to Contain the Hosts `web1` and `web2`
+### Configure the `webservers` Host Group to contain the hosts `web1` and `web2`
 
 1. Move into the working directory:
 
@@ -109,7 +107,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 
 
-### Define Variables for `webservers` with Their Accompanying Values
+### Define Variables for `webservers` with their accompanying values
 
 1. Move into the `group_vars` directory:
 
@@ -134,7 +132,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 
 
-### Define the `script_files` Variable for `web1` and Set Its Value to `/usr/local/scripts`
+### Define the `script_files` variable for `web1` and set its value to `/usr/local/scripts`
 
 1. Move into the working directory:
 
@@ -162,7 +160,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 7. To save and exit the file, press **ESC**, type `:wq`, and press **Enter**.
 
-Copy the scripts directory from the clone repository to the working directory.
+Copy the ``scripts`` directory from the clone repository to the working directory.
 
 ```
 cp -r /home/ansible/ansible-best-practices/labs/inventory/scripts /home/ansible/lab-inventory/.
