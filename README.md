@@ -11,6 +11,7 @@ Slides are provided by the instructor.
 
 ## Labs   
 ### Day 1      
+Lab 0: [Access lab environment](labs/access_lab/)   
 Lab 1: [Install and Configure Ansible](labs/setup-ansible/)   
 Lab 2: [Ansible Inventory](labs/inventory/)   
 Lab 3: [Get familiar with Ansible ad-hoc](labs/ad-hoc/)   
