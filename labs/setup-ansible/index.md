@@ -2,17 +2,38 @@
 
 In this hands-on lab, we'll install Ansible on a control node and configure two managed servers for use with Ansible. We will also create a simple inventory and run an Ansible command to verify our configuration is correct.
 
+## Log into the control node
+Log in to the control node as `ec2-user` and sudo to the `ansible` user.
+```
+sudo su - ansible
+```
+
+### Prerequisites
+
+Create and enter a working directory
+
+```
+mkdir /home/ansible/lab-setup && cd /home/ansible/lab-setup
+```
+
 ## Install Ansible on the Control Node
 
 To install Ansible on the control node:
 
 ```
-sudo dnf install ansible-core 
+sudo dnf install ansible-core -y
 ```
 
-## Configure the `ansible` User on the Control and Managed Nodes
+## Configure the `ansible` user on the Control and Managed Nodes
 
 Next, we'll add a new `ansible` user to each node. This user will be used for running `ansible` tasks. 
+
+On the managed node run: 
+```
+useradd ansible
+```
+
+Log in to each managed node as the `centos` user and run:
 
 ```
 useradd ansible
@@ -41,7 +62,8 @@ cat /home/ansible/.ssh/id_rsa.pub
 
 
 
-On each of the managed nodes become the `ansible` user and add the key to the `authorized_keys` file.
+Log in to each of the managed nodes, become the `ansible` user, and add the key to the `authorized_keys` file.
+
 
 Become the `ansible` user:
 
@@ -77,14 +99,18 @@ ssh <IP of each node from the spreadsheet>
 
 ## Create a Simple Ansible Inventory
 
-Next, we'll create a simple Ansible inventory on the control node in `/home/ansible/inventory` containing `node1` and `node2`.
+Next, we'll create a simple Ansible inventory on the control node in `/home/ansible/lab-setup/inventory` containing `node1` and `node2`.
 
 On the control host:
 
+Enter the working directory
 ```
-touch /home/ansible/inventory 
-echo "node1 ansible_host=<IP of node1 from spreadsheet>" >> /home/ansible/inventory 
-echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/inventory 
+cd /home/ansible/lab-setup
+```
+```
+touch inventory 
+echo "node1 ansible_host=<IP of node1 from spreadsheet>" >> inventory 
+echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> inventory 
 ```
 
 
@@ -118,19 +144,24 @@ Repeat these steps for `node2`
 
 Finally, we'll verify each managed node is able to be accessed by Ansible from the control node using the `ping` module.
 
-Redirect the output of a successful command to `/home/ansible/output`.
+Redirect the output of a successful command to `/home/ansible/lab-setup/output`.
 
 To verify each node, run the following as the `ansible` user from the control host:
 
+Enter the working directory:
 ```
-ansible -i /home/ansible/inventory node1 -m ping 
-ansible -i /home/ansible/inventory node2 -m ping 
+cd /home/ansible/lab-setup
 ```
 
-To redirect output of a successful command to `/home/ansible/output`:
+```
+ansible -i inventory node1 -m ping 
+ansible -i inventory node2 -m ping 
+```
+
+To redirect output of a successful command to `/home/ansible/lab-setup/output`:
 
 ```
-ansible -i /home/ansible/inventory node1 -m ping > /home/ansible/output 
+ansible -i inventory node1 -m ping > output 
 ```
 
 ## Conclusion
