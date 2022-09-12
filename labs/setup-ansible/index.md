@@ -79,7 +79,7 @@ echo "<copied output from above>" > /home/ansible/.ssh/authorized_keys
 Set the correct permissions
 
 ```
-chmod 600 /home/ansible.ssh/authorized_keys
+chmod 600 /home/ansible/.ssh/authorized_keys
 ```
 
 Confirm you can ssh as the `ansible` user from the control node to the managed nodes
