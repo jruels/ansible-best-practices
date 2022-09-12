@@ -1,5 +1,5 @@
 # Lab Setup 
-The username for SSH is `ubuntu`   
+The username for SSH is `ec2-user`   
 
 ## MacOS 
 Download `lab.pem` from the `keys` directory

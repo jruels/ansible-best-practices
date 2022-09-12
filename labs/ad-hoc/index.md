@@ -8,37 +8,46 @@ Some consultants will be performing audits on a number of systems in our company
 
 ## Get Logged In and Setup Inventory
 
-Log into the control node as the `ansible` user.
+Log in to the server as `ec2-user` and sudo to the `ansible` user.
+```
+sudo su - ansible
+```
 
+### Prerequisites
 
-
-Run the following commands to add the database servers to  `/home/ansible/inventory`:
+Create and enter a working directory
 
 ```
-echo "[dbsystems]" >> /home/ansible/inventory
-echo "db1 ansible_host=<IP of node1 from spreadsheet>" >> /home/ansible/inventory 
-echo "db2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/inventory 
+mkdir /home/ansible/lab-ad-hoc && cd /home/ansible/lab-ad-hoc
+```
+
+Run the following commands to add the database servers to  `/home/ansible/lab-ad-hoc/inventory`:
+
+```
+echo "[dbsystems]" >> inventory
+echo "db1 ansible_host=<IP of node1 from spreadsheet>" >> inventory 
+echo "db2 ansible_host=<IP of node2 from spreadsheet>" >> inventory 
 ```
 
 
 
 ## User Accounts File
 
-Copy the user accounts file from the lab directory to `/home/ansible/userlist.txt`
+Copy the user accounts file from the lab directory to `/home/ansible/lab-ad-hoc/userlist.txt`
 
 ```
-sudo cp /home/ec2-user/ansible-best-practices/labs/ad-hoc/files/userlist.txt /home/ansible/userlist.txt
+sudo cp /home/ec2-user/ansible-best-practices/labs/ad-hoc/files/userlist.txt /home/ansible/lab-ad-hoc/userlist.txt
 ```
 
 
 
-## Create the User Accounts Noted in `/home/ansible/userlist.txt`
+## Create the User Accounts 
 
-If we read the `userlist.txt` file in our home directory, we'll see `consultant` and `supervisor`. Those are the two new user accounts we have to create:
+If we read the `userlist.txt` file in our work directory, we'll see `consultant` and `supervisor`. Those are the two new user accounts we have to create:
 
 ```
-ansible -i /home/ansible/inventory dbsystems -b -m user -a "name=consultant" 
-ansible -i /home/ansible/inventory dbsystems -b -m user -a "name=supervisor" 
+ansible -i inventory dbsystems -b -m user -a "name=consultant" 
+ansible -i inventory dbsystems -b -m user -a "name=supervisor" 
 ```
 
 
@@ -48,7 +57,7 @@ ansible -i /home/ansible/inventory dbsystems -b -m user -a "name=supervisor"
 Create keys for the `consultant` and `supervisor` users.
 
 ```
-mkdir -p /home/ansible/keys/{consultant,supervisor}/.ssh
+mkdir -p keys/{consultant,supervisor}/.ssh
 ```
 
 
@@ -56,15 +65,15 @@ mkdir -p /home/ansible/keys/{consultant,supervisor}/.ssh
 Generate SSH key for `consultant` and `supervisor` users.
 
 ```
-ssh-keygen -f /home/ansible/keys/consultant/.ssh/id_rsa
-ssh-keygen -f /home/ansible/keys/supervisor/.ssh/id_rsa
+ssh-keygen -f keys/consultant/.ssh/id_rsa
+ssh-keygen -f keys/supervisor/.ssh/id_rsa
 ```
 
 Create the `authorized_keys` files
 
 ```
-cat /home/ansible/keys/consultant/.ssh/id_rsa.pub > /home/ansible/keys/consultant/authorized_keys
-cat /home/ansible/keys/supervisor/.ssh/id_rsa.pub > /home/ansible/keys/supervisor/authorized_keys
+cat keys/consultant/.ssh/id_rsa.pub > keys/consultant/authorized_keys
+cat keys/supervisor/.ssh/id_rsa.pub > keys/supervisor/authorized_keys
 ```
 
 
@@ -72,15 +81,16 @@ cat /home/ansible/keys/supervisor/.ssh/id_rsa.pub > /home/ansible/keys/superviso
 ## Place Key Files in the Correct Location, `/home/$USER/.ssh/authorized_keys`, on Hosts in `dbsystems`
 
 ```
-ansible -i /home/ansible/inventory dbsystems -b -m file -a "path=/home/consultant/.ssh state=directory owner=consultant group=consultant mode=0755" 
-ansible -i /home/ansible/inventory dbsystems -b -m copy -a "src=/home/ansible/keys/consultant/authorized_keys dest=/home/consultant/.ssh/authorized_keys mode=0600 owner=consultant group=consultant" ansible -i /home/ansible/inventory dbsystems -b -m file -a "path=/home/supervisor/.ssh state=directory owner=supervisor group=supervisor mode=0755"
-ansible -i /home/ansible/inventory dbsystems -b -m copy -a "src=/home/ansible/keys/supervisor/authorized_keys dest=/home/supervisor/.ssh/authorized_keys mode=0600 owner=supervisor group=supervisor" 
+ansible -i inventory dbsystems -b -m file -a "path=/home/consultant/.ssh state=directory owner=consultant group=consultant mode=0755" 
+ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/keys/consultant/authorized_keys dest=/home/consultant/.ssh/authorized_keys mode=0600 owner=consultant group=consultant" 
+ansible -i inventory dbsystems -b -m file -a "path=/home/supervisor/.ssh state=directory owner=supervisor group=supervisor mode=0755"
+ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/keys/supervisor/authorized_keys dest=/home/supervisor/.ssh/authorized_keys mode=0600 owner=supervisor group=supervisor" 
 ```
 
 ## Ensure `auditd` Is Enabled and Running on All Hosts
 
 ```
-ansible -i /home/ansible/inventory dbsystems -b -m service -a "name=auditd state=started enabled=yes" 
+ansible -i inventory dbsystems -b -m service -a "name=auditd state=started enabled=yes" 
 ```
 
 ## Conclusion
