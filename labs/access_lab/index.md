@@ -13,7 +13,7 @@ chmod 600 /path/to/lab.pem
 
 ### SSH to lab servers 
 ```
-ssh -i /path/to/lab.pem ubuntu@<LAB IP> 
+ssh -i /path/to/lab.pem <user>@<LAB IP> 
 ```
 
 
