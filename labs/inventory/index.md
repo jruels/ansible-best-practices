@@ -6,7 +6,7 @@ Your coworker has created a simple script and an Ansible playbook to create an a
 
 ## Log into the controller manager
 
-1. Log in to the server as `ec2-user` and sudo to the `ansible` user.
+Log in to the server as `ec2-user` and sudo to the `ansible` user.
 ```
 sudo su - ansible
 ```
@@ -18,7 +18,7 @@ Before we begin, we need to clone the lab directory, and install some community 
 Clone the lab directory
 
 ```
-git clone git clone https://github.com/jruels/ansible-best-practices.git
+git clone https://github.com/jruels/ansible-best-practices.git
 ```
 
 Install the community module collection
@@ -132,7 +132,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
 
 
-### Define the `script_files` variable for `web1` and set its value to `/usr/local/scripts`
+### Define the `script_files` variable for `web1` 
 
 1. Move into the working directory:
 
@@ -165,8 +165,6 @@ Copy the ``scripts`` directory from the clone repository to the working director
 ```
 cp -r /home/ansible/ansible-best-practices/labs/inventory/scripts /home/ansible/lab-inventory/.
 ```
-
-
 
 ## Testing
 

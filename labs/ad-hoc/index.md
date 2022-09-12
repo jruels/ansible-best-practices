@@ -2,7 +2,7 @@
 
 ## The Scenario
 
-Some consultants will be performing audits on a number of systems in our company's environment. We've got to create the user accounts listed in */home/ansible/userlist.txt* and set up the provided public keys for their accounts. The security team has built a jump host for the consultants to access production systems and provided us with the full key-pair so we can set up and test the connection. All hosts in `dbsystems` will need that public key installed so the consultants may use key-pair authentication to access the systems. We must also ensure the `auditd` service is enabled and running on all systems.
+Some consultants will be performing audits on a number of systems in our company's environment. We've got to create the user accounts listed in `/home/ansible/lab-ad-hoc/userlist.txt` and set up the provided public keys for their accounts. The security team has built a jump host for the consultants to access production systems and provided us with the full key-pair so we can set up and test the connection. All hosts in `dbsystems` will need that public key installed so the consultants may use key-pair authentication to access the systems. We must also ensure the `auditd` service is enabled and running on all systems.
 
 
 

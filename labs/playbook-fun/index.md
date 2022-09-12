@@ -32,9 +32,9 @@ Create and enter a working directory
 Create an inventory that contains a Host Group named `web` containing node1 and node2
 
 ```
-echo "[web]" >> /home/ansible/lab-playbook-fun/inventory 
-echo "node1 ansible_host=<IP of node1 from spreadsheet>" >> /home/ansible/lab-playbook-fun/inventory 
-echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> /home/ansible/lab-playbook-fun/inventory 
+echo "[web]" >> inventory 
+echo "node1 ansible_host=<IP of node1 from spreadsheet>" >> inventory 
+echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> inventory 
 ```
 
 
@@ -73,7 +73,7 @@ Using Vim, create`/home/ansible/lab-playbook-fun/web.yml` file with these conten
 ## Execute the playbook
 
 ```
-ansible-playbook -i /home/ansible/lab-playbook-fun/inventory /home/ansible/lab-playbook-fun/web.yml 
+ansible-playbook -i inventory web.yml 
 ```
 
 
@@ -101,6 +101,8 @@ tasks:
         - httpd
       state: latest
 ```
+
+Rerun the playbook and confirm it is succesful.
 
 
 
