@@ -82,9 +82,9 @@ cat keys/supervisor/.ssh/id_rsa.pub > keys/supervisor/authorized_keys
 
 ```
 ansible -i inventory dbsystems -b -m file -a "path=/home/consultant/.ssh state=directory owner=consultant group=consultant mode=0755" 
-ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/keys/consultant/authorized_keys dest=/home/consultant/.ssh/authorized_keys mode=0600 owner=consultant group=consultant" 
+ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/lab-ad-hoc/keys/consultant/authorized_keys dest=/home/consultant/.ssh/authorized_keys mode=0600 owner=consultant group=consultant" 
 ansible -i inventory dbsystems -b -m file -a "path=/home/supervisor/.ssh state=directory owner=supervisor group=supervisor mode=0755"
-ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/keys/supervisor/authorized_keys dest=/home/supervisor/.ssh/authorized_keys mode=0600 owner=supervisor group=supervisor" 
+ansible -i inventory dbsystems -b -m copy -a "src=/home/ansible/lab-ad-hoc/keys/supervisor/authorized_keys dest=/home/supervisor/.ssh/authorized_keys mode=0600 owner=supervisor group=supervisor" 
 ```
 
 ## Ensure `auditd` Is Enabled and Running on All Hosts
