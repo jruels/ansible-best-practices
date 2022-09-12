@@ -5,13 +5,6 @@ In this hands-on lab, we'll install Ansible on a control node and configure two 
 ## Log into the control node
 Log in to the control node as `ec2-user` 
 
-### Prerequisites
-
-Create and enter a working directory
-
-```
-mkdir /home/ansible/lab-setup && cd /home/ansible/lab-setup
-```
 
 ## Install Ansible on the Control Node
 
@@ -27,14 +20,17 @@ Next, we'll add a new `ansible` user to each node. This user will be used for ru
 
 On the managed node run: 
 ```
-useradd ansible
+sudo useradd ansible
 ```
 
 Log in to each managed node as the `centos` user and run:
 
 ```
-useradd ansible
+sudo useradd ansible
 ```
+
+
+
 
 Configure the `ansible` user on the control node for ssh shared key access to the managed nodes.
 
@@ -95,6 +91,12 @@ ssh <IP of each node from the spreadsheet>
 
 
 ## Create a Simple Ansible Inventory
+
+Create and enter a working directory
+
+```
+mkdir /home/ansible/lab-setup && cd /home/ansible/lab-setup
+```
 
 Next, we'll create a simple Ansible inventory on the control node in `/home/ansible/lab-setup/inventory` containing `node1` and `node2`.
 
