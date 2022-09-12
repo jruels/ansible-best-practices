@@ -3,10 +3,7 @@
 In this hands-on lab, we'll install Ansible on a control node and configure two managed servers for use with Ansible. We will also create a simple inventory and run an Ansible command to verify our configuration is correct.
 
 ## Log into the control node
-Log in to the control node as `ec2-user` and sudo to the `ansible` user.
-```
-sudo su - ansible
-```
+Log in to the control node as `ec2-user` 
 
 ### Prerequisites
 
