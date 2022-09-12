@@ -7,18 +7,18 @@
 
 case "$1" in
   mediavars)
-    ansible-playbook -i /home/ansible/inventory /home/ansible/scripts/backup.yml --tags "mediavars"
+    ansible-playbook -i inventory scripts/backup.yml --tags "mediavars"
     exit $?
     ;;
   webservervars)
-    ansible-playbook -i /home/ansible/inventory /home/ansible/scripts/backup.yml --tags "webservervars"
+    ansible-playbook -i inventory scripts/backup.yml --tags "webservervars"
     exit $?
     ;;
   hostvar)
-    ansible-playbook -i /home/ansible/inventory /home/ansible/scripts/backup.yml --tags "hostvar"
+    ansible-playbook -i inventory scripts/backup.yml --tags "hostvar"
     exit $?
     ;;
   *)
-    ansible-playbook -i /home/ansible/inventory /home/ansible/scripts/backup.yml
+    ansible-playbook -i inventory scripts/backup.yml
     exit $?
 esac
