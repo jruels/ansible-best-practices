@@ -1,5 +1,7 @@
 # Lab Setup 
-The username for SSH is `ec2-user`   
+The username for SSH is 
+Tower: `ec2-user`   
+CentOS: `centos`   
 
 ## MacOS 
 Download `lab.pem` from the `keys` directory
