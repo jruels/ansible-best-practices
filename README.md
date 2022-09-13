@@ -17,3 +17,5 @@ Lab 2: [Ansible Inventory](labs/inventory/)
 Lab 3: [Get familiar with Ansible ad-hoc](labs/ad-hoc/)   
 Lab 4: [Ansible Playbook Fundamentals](labs/playbook-fun/)   
 
+### Day 2    
+Lab 5: [Ansible Playbook Error Handling](labs/error-handling/)   
