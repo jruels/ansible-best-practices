@@ -7,14 +7,22 @@ If the report is collected, the playbook should write and edit the file to repla
 
 Task list: 
 
-* Create a playbook, `/home/ubuntu/report.yml` that runs against `localhost`.
-* Configure the playbook to use the `get_url` module to download https://bit.ly/3dtJtR7 to `/home/ubuntu/transaction_list` on `localhost` and output "File downloaded." to `stdout`.
+* Create a playbook, `/home/ansible/lab-error-handling/report.yml` that runs against `localhost`.
+* Configure the playbook to use the `get_url` module to download https://bit.ly/3dtJtR7 to `/home/ansible/lab-error-handling/transaction_list` on `localhost` and output "File downloaded." to `stdout`.
 * Configure the playbook to handle connection failure by outputting "Site appears to be down. Try again later." to `stdout`.
 * Configure the playbook to output "Attempt Completed" to stdout, whether it was successful or not.
 * Configure the playbook to replace all instances of `#BLANKLINE` with the line break character `\n`
 * Run the playbook using the default inventory to verify whether things work or not.
 
-After confirming the playbook successfully downloads and updates the `transaction_list` file, run the `break_stuff.yml` playbook in the `maint` directory to simulate an unreachable host. 
+After confirming the playbook successfully downloads and updates the `transaction_list` file, pull the latest changes from the repository, and run the `break_stuff.yml` playbook in the `maint` directory to simulate an unreachable host.
+
+```
+cd ~/ansible-best-practices && git pull
+```
+
+```
+cd /home/ansible/lab-error-handlng
+```
 
 
 ```sh
@@ -26,10 +34,9 @@ Confirm the host is no longer reachable
 curl -L -o transaction_list https://bit.ly/3dtJtR7
 ```
 
-* Run the playbook again and confirm it gracefully handles the failure.
+Run the playbook again and confirm it gracefully handles the failure.
 
 Restore the service using `break_stuff.yml`, and confirm the `report.yml` playbook reports the service is back online.
 
 ## Congrats!
-
 
