@@ -13,6 +13,7 @@ Task list:
 * Configure the playbook to output "Attempt Completed" to stdout, whether it was successful or not.
 * Configure the playbook to replace all instances of `#BLANKLINE` with the line break character `\n`
 * Run the playbook using the default inventory to verify whether things work or not.
+* Configure ansible to run with escalated permissions.
 
 After confirming the playbook successfully downloads and updates the `transaction_list` file, pull the latest changes from the repository, and run the `break_stuff.yml` playbook in the `maint` directory to simulate an unreachable host.
 

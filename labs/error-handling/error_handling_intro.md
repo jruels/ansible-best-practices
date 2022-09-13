@@ -123,6 +123,29 @@ After confirming the playbook successfully downloads and updates the `transactio
 cd ~/ansible-best-practices && git pull
 ```
 
+Add the `ansible` user to the `sudoers` file. 
+
+Exit to the `ec2-user` account
+```
+exit
+```
+
+As `ec2-user` run `visudo`   
+
+```
+sudo visudo
+```
+
+Add the following: 
+```
+ansible    ALL=(ALL)       NOPASSWD: ALL
+```
+
+Change back to the `ansible` user. 
+
+```
+sudo su - ansible
+```
 
 ```sh
 ansible-playbook ~/ansible-best-practices/labs/error-handling/maint/break_stuff.yml --tags service_down
