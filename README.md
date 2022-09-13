@@ -19,3 +19,4 @@ Lab 4: [Ansible Playbook Fundamentals](labs/playbook-fun/)
 
 ### Day 2    
 Lab 5: [Ansible Playbook Error Handling](labs/error-handling/)   
+Lab 6: [Ansible Templating](labs/templates/)   
