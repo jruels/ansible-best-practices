@@ -185,8 +185,8 @@ Set the following in the `inventory` file (if not already completed)
 * Change `127.0.0.1` to `aap.localhost.com`
 * admin password = Password1234   
 * pg_password = Password1234   
-* registry_username = The username generated earlier in the lab (i.e 15765574|ansible-tower)
-* registry_password = The token you generated earlier in the lab.
+* registry_username = The username generated earlier in the lab (i.e 15765574|ansible-tower)   
+* registry_password = The token you generated earlier in the lab.   
 
 Run installation script
 
