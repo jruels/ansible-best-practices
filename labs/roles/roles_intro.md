@@ -220,7 +220,7 @@ mkdir roles
 
 3. Edit it to match the following:
 
-   ```yaml
+```yaml
 ---
 - hosts: webservers
   become: yes
@@ -231,7 +231,7 @@ mkdir roles
       yum: name=httpd state=latest
     - name: start and enable httpd
       service: name=httpd state=started enabled=yes
-   ```
+```
 
    
 
