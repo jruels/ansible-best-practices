@@ -35,13 +35,13 @@ mkdir /home/ansible/lab-vault && cd /home/ansible/lab-vault
 
 Use `ansible-vault` to encrypt `/home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential` to protect the confidential information stored within using the password "I love ansible".
 
-1. Run `ansible-vault encrypt /home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential` and supply the password "I love ansible".
+Run `ansible-vault encrypt /home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential` and supply the password "I love ansible".
 
 ### Create a playbook that deploys httpd on webservers
 
 Create a playbook in `/home/ansible/lab-vault/webserver.yml` that deploys `httpd` on the webservers. It should be tagged with `base-install` and contain a handler that restarts the `httpd` daemon that is flagged by both installation and service manipulation for `httpd`.
 
-1. Create the file `/home/ansible/lab-vault/webserver.yml` and add the following content:
+Create the file `/home/ansible/lab-vault/webserver.yml` and add the following content:
 
 ```yaml
 ---
@@ -70,7 +70,7 @@ Create a playbook in `/home/ansible/lab-vault/webserver.yml` that deploys `httpd
 
 Configure `webserver.yml` to deploy the templates `/home/ansible/ansible-best-practices/labs/ansible-vault/conf/vhost.conf.j2` and `/home/ansible/ansible-best-practices/labs/ansible-vault/conf/htpasswd.j2` to the `webservers` group. `httpd` must restart on config change. The tasks should be tagged `vhost`.
 
-1. Add the following text to `webserver.yml` just **before** the handler section:
+Add the following text to `webserver.yml` just **before** the handler section:
 
 ```yaml
     - name: configure virtual host
@@ -93,7 +93,7 @@ Configure `webserver.yml` to deploy the templates `/home/ansible/ansible-best-pr
 
 Configure `webserver.yml` to asynchronously execute `/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh` located on the webservers with a timeout of 600 seconds and no polling. The task should be tagged with `data-job`.
 
-1. Add the following text to `webserver.yml` just **before** the handler section:
+Add the following text to `webserver.yml` just **before** the handler section:
 
 ```yaml
     - name: run data job
@@ -161,7 +161,7 @@ web2
 
 Execute playbook `webserver.yml` to verify your playbook works correctly.
 
-1. Run `ansible-playbook -i inventory --ask-vault-pass webserver.yml` from the control node and provide the vault password "I love ansible".
+Run `ansible-playbook -i inventory --ask-vault-pass webserver.yml` from the control node and provide the vault password "I love ansible".
 
 ## Conclusion
 
