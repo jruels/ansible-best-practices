@@ -221,21 +221,16 @@ mkdir roles
 3. Edit it to match the following:
 
    ```yaml
-   ---
-   - hosts: webservers
-     become: yes
-     tasks:
-       - name: Install EPEL repository
-         yum:
-           name: epel-release
-           state: latest
-     roles:
-       - baseline
-     tasks:
-       - name: install httpd
-         yum: name=httpd state=latest
-       - name: start and enable httpd
-         service: name=httpd state=started enabled=yes
+---
+- hosts: webservers
+  become: yes
+  roles:
+    - baseline
+  tasks:
+    - name: install httpd
+      yum: name=httpd state=latest
+    - name: start and enable httpd
+      service: name=httpd state=started enabled=yes
    ```
 
    
