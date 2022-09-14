@@ -9,7 +9,7 @@ Start by creating an inventory file with a `webservers` group consisting of the 
 
 You must create a modular playbook used for webserver management. 
 
-Create a playbook called `/home/ubuntu/webserver.yml` that meets the following requirements:
+Create a playbook called `webserver.yml` that meets the following requirements:
 
 On the host group `webservers`:
 
@@ -32,7 +32,6 @@ Confirm the following:
 * Playbook execution prompts for vault password
 * Playbook completes successfully
 * `/opt/data-job.sh` is running on both nodes
-* Apache returns a `401 Unauthorized` status
 
 ## Congrats!
 
