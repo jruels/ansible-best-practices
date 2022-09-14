@@ -98,7 +98,7 @@ Add the following task to the `webserver.yml` **after* the `configure site auth`
 ```yaml
  - name: copy data job to all hosts
        copy:
-         src: "/home/ubuntu/adv-ansible/labs/ansible-vault/bin/data-job.sh"
+         src: "/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
          dest: /opt/data-job.sh
          owner: ubuntu
          group: ubuntu
