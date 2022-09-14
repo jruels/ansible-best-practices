@@ -7,7 +7,7 @@ Log in to the control node as `ec2-user` and sudo to the `ansible` user.
  sudo su - ansible
  ```
 
- ### Prerequisites
+### Prerequisites
 
 Before we begin, we need to pull the latest changes from our lab repo.
 
