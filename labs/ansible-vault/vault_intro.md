@@ -93,7 +93,7 @@ Add the following text to `webserver.yml` just **before** the handler section:
 
 We need to copy the `data-job.sh` script to the managed nodes. 
 
-Add the following task to the `webserver.yml`
+Add the following task to the `webserver.yml` **after* the `configure site auth` task
 
 ```yaml
  - name: copy data job to all hosts
@@ -102,7 +102,8 @@ Add the following task to the `webserver.yml`
          dest: /opt/data-job.sh
          owner: ubuntu
          group: ubuntu
-         mode: 755```
+         mode: 755
+```
 
 Configure `webserver.yml` to asynchronously execute `/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh` located on the webservers with a timeout of 600 seconds and no polling. The task should be tagged with `data-job`.
 
