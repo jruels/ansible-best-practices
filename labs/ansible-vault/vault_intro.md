@@ -149,6 +149,14 @@ Configure `webserver.yml` to asynchronously execute `/home/ansible/ansible-best-
       listen: httpd service
 ```
 
+Create an inventory including a `webservers` group with both lab nodes.
+
+```
+[webservers]
+web1
+web2
+```
+
 ### Execute playbook to verify your playbook works correctly
 
 Execute playbook `webserver.yml` to verify your playbook works correctly.
