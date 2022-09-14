@@ -21,3 +21,8 @@ Lab 4: [Ansible Playbook Fundamentals](labs/playbook-fun/)
 Lab 5: [Ansible Playbook Error Handling](labs/error-handling/)   
 Lab 6: [Ansible Templating](labs/templates/)   
 Lab 7: [Install Ansible Tower](labs/install-aap/)   
+
+### Day 3    
+Lab 8: [Ansible Vault](labs/ansible-vault/)   
+Lab 9: [Ansible Roles](labs/roles/)   
+Lab 10: [Ansible Roles](labs/roles/)   
