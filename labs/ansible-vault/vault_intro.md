@@ -91,6 +91,19 @@ Add the following text to `webserver.yml` just **before** the handler section:
 
 ### Asynchronously execute data-job on webservers
 
+We need to copy the `data-job.sh` script to the managed nodes. 
+
+Add the following task to the `webserver.yml`
+
+```yaml
+ - name: copy data job to all hosts
+       copy:
+         src: "/home/ubuntu/adv-ansible/labs/ansible-vault/bin/data-job.sh"
+         dest: /opt/data-job.sh
+         owner: ubuntu
+         group: ubuntu
+         mode: 755```
+
 Configure `webserver.yml` to asynchronously execute `/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh` located on the webservers with a timeout of 600 seconds and no polling. The task should be tagged with `data-job`.
 
 Add the following text to `webserver.yml` just **before** the handler section:
@@ -134,8 +147,15 @@ Add the following text to `webserver.yml` just **before** the handler section:
       notify: httpd service
       tags:
         - vhost
+    - name: copy data job to all hosts
+      copy:
+        src: "/home/ubuntu/adv-ansible/labs/ansible-vault/bin/data-job.sh"
+        dest: /opt/data-job.sh
+        owner: ubuntu
+        group: ubuntu
+        mode: 755    
     - name: run data job
-      command: /home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh
+      command: /bin/data-job.sh
       async: 600
       poll: 0
       tags:
