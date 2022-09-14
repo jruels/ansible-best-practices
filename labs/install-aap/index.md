@@ -119,8 +119,16 @@ Connect to the server using SSH
 
 Extract the installer 
 
+If the file is a ``.tar`` run:
+
 ```bash
 tar -xvf ansible-automation-platform-setup-*.tar
+```
+
+If the file is a `.tar.gz` run:
+
+```bash
+tar -zxvf ansible-automation-platform-setup-*.tar.gz
 ```
 
 
