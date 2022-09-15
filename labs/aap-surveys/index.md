@@ -97,7 +97,7 @@ In the Hosts view select both nodes and click Run Command
 
 
 
-Within the Details window, select Module command, in Arguments type systemctl status httpd and click Next.
+Within the Details window, select the command module, in Arguments type systemctl status httpd and click Next.
 
 
 
@@ -227,13 +227,10 @@ Now launch **Create index.html** job template by selecting the **Details** tab a
 
 Before the actual launch, the survey will ask for **First Line** and **Second Line**. Fill in some text and click **Next**. The **Preview** window shows the values
 
-<img src="../../../../../../Library/Application Support/typora-user-images/image-20220223224133973.png" alt="image-20220223224133973" style="zoom:40%;" />
-
-
 
  If all is good run the Job by clicking **Launch**.
 
-After the job has completed, check the Apache homepage. SSH into your` nodes, execute `curl` against `localhost`:
+After the job has completed, check the Apache homepage. SSH into your nodes, execute `curl` against `localhost`:
 
 ```bash
 $ curl http://localhost
