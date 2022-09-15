@@ -29,13 +29,13 @@ At the top of the page click the **Hosts** button, the list will be empty since 
 
 
 
-Let's add out hosts.  
+Let's add our hosts.  
 
 
 
 For each (`node1`, `node2`) Add the host to the inventory in Automation Platform:
 
-Click the **Add** button and give it a **Name**, and **Description**: 
+Click the **Add** button and give a **Name**, and **Description**: 
 
 * **Name**: Server1
 
