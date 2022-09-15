@@ -8,19 +8,19 @@ This is the final challenge where we try to put most of what you have learned to
 
 ## Scenario
 
-Your operations team and your application development team like what they see in Ansible automation controller. To really use it in their environment they put together these requirements:
+Your operations team and your application development team like what they see in Ansible Automation Platform. To really use it in their environment they put together these requirements:
 
-* All webservers (`centos1`, and `centos2`) should go in one group
+* All webservers (`node1`, and `node2`) should go in one group
 
 * As the webservers can be used for development purposes or in production, there has to be a way to flag them accordingly as `stage dev` or `stage prod`.
 
-* Currently, `centos1` and is used as a development system and `centos2` is in production.
+* Currently, `node1` is used as a development system and `node2` is in production.
   Of course, the content of the world-famous `index.html` will be different between `dev` and `prod` stages.
   * There should be a title on the page stating the environment
   * There should be a content field
 * The content writer `wweb` should have access to a survey to change the content for `dev` and `prod` servers.
 
-## Prepare your new CentOS2 host
+## Prepare your new 2 host
 
 We need to configure credentials, inventory, etc for our new `centos2` host. 
 
