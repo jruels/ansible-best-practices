@@ -32,7 +32,8 @@ We'll create a quick little module that can create or delete a repository on git
 
 Let's start with a basic scaffolding to see how a custom module works. 
 
-Create the following file structure: 
+Create the following directory / file structure: 
+
 
 ```
 play.yml
@@ -155,6 +156,7 @@ Update the playbook with some more fields:
 - name: Create a github Repo
       github_repo:
         github_auth_key: "..."
+        username: "YOUR GITHUB USERNAME HERE"
         name: "Hello-World"
         description: "This is your first repository"
         private: yes
@@ -318,6 +320,7 @@ Here is a sample of what that might look like:
 - hosts: localhost
   vars:
     - github_token: "YOUR TOKEN HERE"
+    - ansible_python_interpreter: "/usr/bin/python3"
   tasks:
     - name: Create a GitHub Repo
       gh_repo:
@@ -339,7 +342,7 @@ Update the playbook with the following task to delete the repository. Remember t
 
 ```yml
     - name: Delete GitHub Repo
-      github_repo:
+      gh_repo:
         github_auth_key: {% raw %} "{{github_token}}" {% endraw %}
         username: "YOUR GITHUB USERNAME HERE"
         name: "Hello-World"
