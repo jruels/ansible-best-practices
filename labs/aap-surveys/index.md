@@ -8,7 +8,7 @@ Demonstrate the use of Ansible Automation controller [survey feature](https://do
 
 For this lab, we will use a playbook stored in this Git repository
 
-https://github.com/jruels/workshop-examples
+[https://github.com/jruels/workshop-examples](https://github.com/jruels/workshop-examples)
 
 A playbook to ensure Apache is installed and started. The playbook is `apache_install.yml`
 
