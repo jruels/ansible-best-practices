@@ -37,7 +37,7 @@ For each (`node1`, `node2`) Add the host to the inventory in Automation Platform
 
 Click the **Add** button and give a **Name**, and **Description**: 
 
-* **Name**: Server1
+* **Name**: Server (1 or 2)
 
 * **Description**: Node (1 or 2) from the spreadsheet
 
