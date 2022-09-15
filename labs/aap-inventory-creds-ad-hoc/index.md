@@ -63,7 +63,7 @@ One of the great features of the Ansible Automation Platform is to make credenti
 
 To access the new server we need to provide our SSH private key
 
-Log into the control node through SSH and run the following command 
+Log into the control node as the `ec2-user` through SSH, sudo to the `ansible` user, and run the following command 
 
 ```bash
 cat .ssh/id_rsa
