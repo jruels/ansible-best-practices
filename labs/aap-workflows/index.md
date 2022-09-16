@@ -181,5 +181,8 @@ NOTE: Where `XX` is the number of the job run.
 
 ![jobs view of workflow](https://aap2.demoredhat.com/exercises/ansible_rhel/2.6-workflows/images/job_workflow.png)
 
+## Challenge Lab: Recovery workflow
+Using what you learned in this lab, create a workflow with three jobs (JobA, JobB, JobC). If JobA is successful, JobB runs; if JobA fails, JobC runs.
+
 
 ## Congrats!
