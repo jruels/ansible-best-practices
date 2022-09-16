@@ -33,3 +33,6 @@ Lab 12: [Ansible Projects & Tempaltes](labs/aap-projects-templates-jobs/)
 Lab 13: [Ansible Tower Surveys](labs/aap-surveys/)   
 Lab 14: [Ansible RBAC](labs/aap-rbac)   
 Lab 15: [Write your own module](labs/gh_module)   
+
+### Day 45   
+Lab 16: [Ansible Tower Workflows](labs/aap-workflows)   
