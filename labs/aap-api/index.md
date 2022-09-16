@@ -52,6 +52,8 @@ Change the **last_name** to “Smithy” using the **PUT** verb. What happens?
 
 When you’re done press the red **DELETE** button and remove Johnny Smithy.
 
+## Challenge Lab: Create inventory
+For this challenge, use the api to create a new inventory named `api inventory`, that includes the host `Server2`.
 
 
 ## Congrats!
