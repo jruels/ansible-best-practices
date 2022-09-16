@@ -36,3 +36,5 @@ Lab 15: [Write your own module](labs/gh_module)
 
 ### Day 45   
 Lab 16: [Ansible Tower Workflows](labs/aap-workflows)   
+Lab 17: [Ansible Tower Cli](labs/aap-cli)   
+Lab 18: [Ansible Tower API](labs/aap-api)   
