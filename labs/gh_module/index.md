@@ -324,7 +324,7 @@ Here is a sample of what that might look like:
   tasks:
     - name: Create a GitHub Repo
       gh_repo:
-        github_auth_key: "{{github_token}}"
+        github_auth_key: {% raw %} "{{github_token}}" {% endraw %}
         username: "YOUR GITHUB USERNAME HERE"
         name: "Hello-World"
         description: "First repo created with custom Ansible module"
