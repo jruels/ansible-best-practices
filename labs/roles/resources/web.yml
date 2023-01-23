@@ -2,8 +2,8 @@
 - hosts: webservers
   become: yes
   tasks:
-    - name: install httpd
-      yum: name=httpd state=latest
+    - name: install Apache
+      apt: name=apache2 state=latest
     - name: start and enable httpd
-      service: name=httpd state=started enabled=yes
+      service: name=apache state=started enabled=yes
 

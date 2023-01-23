@@ -4,7 +4,7 @@
 
 Our company has been increasing the deployment of small brochure-style websites for clients. The head of IT has decided that each client should have their own web server for better client isolation and has tasked us with creating concept automation to quickly deploy web nodes with simple static website content.
 
-We must create an Ansible inventory in containing a host group named `web`. The web group should contain `node1` and `node2`.
+We must create an Ansible inventory containing a host group named `web`. The web group should contain `node1` and `node2`.
 
 Then we've got to design an Ansible playbook that will execute the following tasks on your configured inventory:
 

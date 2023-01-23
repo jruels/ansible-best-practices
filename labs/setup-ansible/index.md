@@ -23,7 +23,7 @@ On the managed node run:
 sudo useradd ansible
 ```
 
-Log in to each managed node as the `centos` user and run:
+Log in to each managed node as the `ec2-user` user and run:
 
 ```
 sudo useradd ansible
@@ -118,10 +118,10 @@ echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> inventory
 
 Now, we'll configure sudo access for Ansible on `node1` and `node2` such that Ansible may use sudo for any command with no password prompt.
 
-Log in to each managed node as `centos` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
+Log in to each managed node as `ec2-user` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
 
 ```
-ssh centos@node1 
+ssh ec2-user@node1 
 sudo visudo 
 ```
 

@@ -3,7 +3,7 @@
 This site includes the labs for the Ansible Best Practices class.   
 
 ## Lab VM IPs
-[Click Here for Lab IPs](https://docs.google.com/spreadsheets/d/1hqMfSpDqjohHlOX_bwkYhIvntLVW6E8ktLa3uQLHL7k/edit#gid=0)
+[Click Here for Lab IPs](https://docs.google.com/spreadsheets/d/1MUKvvZYEtAw3tQ-hSq_P6XhVjW0XoqjaWVg0Bwc__2g/edit?usp=sharing)
 
 
 ## Course Content   
@@ -28,7 +28,6 @@ Lab 9: [Ansible Roles](labs/roles/)
 Lab 10: [Ansible Tower Tasks](labs/aap-inventory-creds-ad-hoc/)   
 
 ### Day 4    
-Lab 11: [Ansible Tower Inventories, credentials, and ad-hoc](labs/aap-inventory-creds-ad-hoc/)   
 Lab 12: [Ansible Projects & Tempaltes](labs/aap-projects-templates-jobs/)   
 Lab 13: [Ansible Tower Surveys](labs/aap-surveys/)   
 Lab 14: [Ansible RBAC](labs/aap-rbac)   
