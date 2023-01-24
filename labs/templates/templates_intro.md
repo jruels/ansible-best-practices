@@ -114,7 +114,7 @@ The `security.yml` file should look like this:
 ansible-playbook -i inventory security.yml 
 ```
 
-The output will show that everything deployed fine, but we can check locally to make sure. Let's become `root` (with `sudo su -`) and then read our file:
+The output will show that everything deployed fine, but we can check locally to make sure. Run the following command to read the file:
 
 ```
 sudo cat /etc/sudoers.d/hardened 
