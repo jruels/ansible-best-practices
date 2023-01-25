@@ -94,7 +94,7 @@ Under **Type Details** fill in:
 
 * Click **Save**
 
-Go back to the **Resources -> Credentials -> Server1 credentials** and note that the SSH key is not visible.
+Go back to the **Resources -> Credentials -> Linux credentials** and note that the SSH key is not visible.
 
 You have now set up credentials for Ansible to access your managed host.
 
