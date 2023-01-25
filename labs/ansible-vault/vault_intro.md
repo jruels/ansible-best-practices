@@ -35,7 +35,11 @@ mkdir /home/ansible/lab-vault && cd /home/ansible/lab-vault
 
 Use `ansible-vault` to encrypt `/home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential` to protect the confidential information stored within using the password "I love ansible".
 
-Run `ansible-vault encrypt /home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential` and supply the password "I love ansible".
+Run 
+```
+ansible-vault encrypt /home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential
+``` 
+and supply the password "I love ansible".
 
 ### Create a playbook that deploys httpd on webservers
 
@@ -96,13 +100,11 @@ We need to copy the `data-job.sh` script to the managed nodes.
 Add the following task to the `webserver.yml` **after* the `configure site auth` task
 
 ```yaml
- - name: copy data job to all hosts
-       copy:
-         src: "/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
-         dest: /opt/data-job.sh
-         owner: ubuntu
-         group: ubuntu
-         mode: 755
+    - name: copy data job to all hosts
+      copy:
+        src: "{{ lookup('env', 'HOME') }}/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
+        dest: /opt/data-job.sh
+        mode: 775
 ```
 
 Configure `webserver.yml` to asynchronously execute `/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh` located on the webservers with a timeout of 600 seconds and no polling. The task should be tagged with `data-job`.
@@ -150,13 +152,11 @@ Add the following text to `webserver.yml` just **before** the handler section:
         - vhost
     - name: copy data job to all hosts
       copy:
-        src: "/home/ubuntu/adv-ansible/labs/ansible-vault/bin/data-job.sh"
+        src: "{{ lookup('env', 'HOME') }}/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
         dest: /opt/data-job.sh
-        owner: ubuntu
-        group: ubuntu
-        mode: 755    
+        mode: 755
     - name: run data job
-      command: /bin/data-job.sh
+      command: /opt/data-job.sh
       async: 600
       poll: 0
       tags:
@@ -170,13 +170,7 @@ Add the following text to `webserver.yml` just **before** the handler section:
       listen: httpd service
 ```
 
-Create an inventory including a `webservers` group with both lab nodes.
-
-```
-[webservers]
-web1
-web2
-```
+Use what you've learned in previous labs to create an inventory including a `webservers` group with both managed nodes.
 
 ### Execute playbook to verify your playbook works correctly
 
