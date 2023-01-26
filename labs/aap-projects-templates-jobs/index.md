@@ -132,7 +132,7 @@ Fill in the following:
 
 * **Playbook**: create_user.yml
 
-* **Credentials**: Linux Server credentials
+* **Credentials**: Linux credentials
 
 * **Options**: The tasks need to run as `root` so check **Privilege Escalation**
 
