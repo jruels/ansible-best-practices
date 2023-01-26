@@ -56,7 +56,7 @@ Fill in the following:
 
 * **Playbook**: `/rhel/apache/apache_install.yml`
 
-* **Credentials**: Linux Server credentials
+* **Credentials**: Linux credentials
 
 * **Options**: The tasks need to run as `root` so check **Privilege Escalation**
 
