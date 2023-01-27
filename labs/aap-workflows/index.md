@@ -96,7 +96,7 @@ Within **Resources** -> **Templates**, click the **Add** button and choose **Add
 | Project               | Webops Git Repo                      |
 | Execution Environment | Default execution environment        |
 | Playbook              | `rhel/webops/web_infrastructure.yml` |
-| Credentials           | Linux Server credentials             |
+| Credentials           | Linux credentials                    |
 | Limit                 | web                                  |
 | Options               | ✓ Privilege Escalation               |
 
@@ -114,7 +114,7 @@ Within **Resources** -> **Templates**, click the **Add** button and choose **Add
 | Project               | Webdev Git Repo                    |
 | Execution Environment | Default execution environment      |
 | Playbook              | `rhel/webdev/install_node_app.yml` |
-| Credentials           | Linux Server credentials           |
+| Credentials           | Linux credentials                  |
 | Limit                 | web                                |
 | Options               | ✓ Privilege Escalation             |
 
