@@ -18,7 +18,7 @@ Before we begin, we need to clone the lab directory, and install some community 
 Clone the lab directory
 
 ```
-git clone https://github.com/jruels/ansible-best-practices.git
+git clone https://github.com/jruels/ansible-best-practices-windows.git
 ```
 
 Install the community module collection
@@ -47,10 +47,24 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 3. Paste in the following:
 
    ```
-   [media] 
-   media1 ansible_host=<IP of node1 from spreadsheet>
-   media2 ansible_host=<IP of node2 from spreadsheet>
-   ```
+   ---
+   media:
+     hosts:
+       media1:
+         ansible_host: 54.176.168.85
+         ansible_user: "{{ windows_user }}"
+         ansible_password: "{{ windows_pwd }}"
+         ansible_connection: winrm
+         ansible_winrm_transport: ntlm
+         ansible_winrm_server_cert_validation: ignore
+       media2:
+         ansible_host: 13.52.179.175
+         ansible_user: "{{ windows_user }}"
+         ansible_password: "{{ windows_pwd }}"
+         ansible_connection: winrm
+         ansible_winrm_transport: ntlm
+         ansible_winrm_server_cert_validation: ignore
+      ```
 
 4. To save and exit the file, press **ESC**, type `:wq`, and press **Enter**.
 
@@ -91,16 +105,30 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 
    `cd /home/ansible/lab-inventory`
 
-2. Edit the `inventory` file:
+2. Edit the `inventory.yml` file:
 
-   `vim inventory `
+   `vim inventory.yml`
 
 3. Beneath `media2`, paste in the following:
 
    ```
-   [webservers] 
-   web1 ansible_host=<IP of node1 from spreadsheet>
-   web2 ansible_host=<IP of node2 from spreadsheet>
+   ---
+   webservers:
+     hosts:
+       webserver1:
+         ansible_host: 54.176.168.85
+         ansible_user: "{{ windows_user }}"
+         ansible_password: "{{ windows_pwd }}"
+         ansible_connection: winrm
+         ansible_winrm_transport: ntlm
+         ansible_winrm_server_cert_validation: ignore
+       webserver2:
+         ansible_host: 13.52.179.175
+         ansible_user: "{{ windows_user }}"
+         ansible_password: "{{ windows_pwd }}"
+         ansible_connection: winrm
+         ansible_winrm_transport: ntlm
+         ansible_winrm_server_cert_validation: ignore
    ```
 
 4. To save and exit the file, press **ESC**, type `:wq`, and press **Enter**.
@@ -124,8 +152,7 @@ mkdir /home/ansible/lab-inventory && cd /home/ansible/lab-inventory
 4. Paste in the following:
 
    ```
-   httpd_webroot: /var/www/
-   httpd_config: /etc/httpd/
+   iis_webroot: /inetpub/wwwroot/
    ```
 
 5. To save and exit the file, press **ESC**, type `:wq`, and press **Enter**.
