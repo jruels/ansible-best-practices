@@ -3,7 +3,7 @@
 In this hands-on lab, we'll install Ansible on a control node and configure two managed servers for use with Ansible. We will also create a simple inventory and run an Ansible command to verify our configuration is correct.
 
 ## Log into the control node
-Log in to the control node as `ec2-user` 
+Log in to the control node as `ubuntu` 
 
 
 ## Install Ansible on the Control Node
@@ -46,69 +46,66 @@ pip3 install boto3 botocore
 
 ## Create a new Reposistory in your personal GitHub Account
 
-Click New Repository
-name the reposistory lab-setup
-Check the `Add a README file` checkbox
-Click the `Create Repository` button
-
-In the new repository click the `code` button to expose the https url for the repository
-click the copy button to coppy the https url for the repo
+1. Click New Repository
+1. Name the reposistory lab-setup
+1. Check the `Add a README file` checkbox
+1. Click the `Create Repository` button
+1. In the new repository click the `code` button to expose the https url for the repository
+1. Click the copy button to coppy the https url for the repo
 
 ## Open the newly create repository in VS Code
-launch VS Code from the Start Menu or Task Bar
-Select the Source Control Tab from the toolbar on the left
-in the Source Control pain click the ... to expand the menu
-Select Remote > Add Remote
-Paste the URL to newly created Repo
 
-
+1. Launch VS Code from the Start Menu or Task Bar
+1. Select the Source Control Tab from the toolbar on the left
+1. In the Source Control pain click `Clone Repository`
+1. Paste the URL to newly created Repo
 
 ## Create a Simple Ansible Inventory
 
+Next, we'll create a simple Ansible inventory on the control node in `C:\GitRepos\ansible-working\lab-setup\inventory.yml` containing `webserver1` and `webserver2`.
 
-
-
-```
-mkdir /home/ansible/lab-setup && cd /home/ansible/lab-setup
-```
-
-Next, we'll create a simple Ansible inventory on the control node in `/home/ansible/lab-setup/inventory` containing `node1` and `node2`.
-
-On the control host:
+In VS Code 
 
 Enter the working directory
 ```
 cd /home/ansible/lab-setup
 ```
 ```
-touch inventory 
-echo "node1 ansible_host=<IP of node1 from spreadsheet>" >> inventory 
-echo "node2 ansible_host=<IP of node2 from spreadsheet>" >> inventory 
+---
+webservers:
+  hosts:
+    webserver1:
+      ansible_host: 52.53.151.241
+      ansible_user: Administrator
+      ansible_password: JustM300
+      ansible_connection: winrm
+      ansible_winrm_transport: ntlm
+      ansible_winrm_server_cert_validation: ignore
+    webserver2:
+      ansible_host: 54.183.197.81
+      ansible_user: Administrator
+      ansible_password: JustM300
+      ansible_connection: winrm
+      ansible_winrm_transport: ntlm
+      ansible_winrm_server_cert_validation: ignore
 ```
 
 
 
 ## Configure `sudo` Access for Ansible
 
-Now, we'll configure sudo access for Ansible on `node1` and `node2` such that Ansible may use sudo for any command with no password prompt.
+Now, we'll configure WinRM for each windows node by creating a key using it to create a listener then opening the ports on the firewall
 
-Log in to each managed node as `ec2-user` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
+Remote desktop into the Windows node and run the powershell script to enable WinRM
 
-```
-ssh ec2-user@node1 
-sudo visudo 
-```
+1. In remote desktop enter the ip address for Windows Target 1
+2. Click `Show Options`
+3. Enter `Administrator` as the user name
+4. Click `Connect`
+5. Enter `JustM300` as the password
+6. Click `Yes`
+7. Open Chrome and use the link below to download the powershell script 
 
-Add the following line to the file and save:
-
-```
-ansible    ALL=(ALL)       NOPASSWD: ALL 
-```
-
-Enter:
-
-```
-exit
 ```
 
 Repeat these steps for `node2`
