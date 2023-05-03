@@ -53,7 +53,7 @@ In the VS Code Explorer pane
   1. Select `New File`
   1. Name the new file 'inventory_simple.yml
   1. Paste the code below into the file
-    ```
+  ```
     ---
     webservers:
       hosts:
@@ -71,8 +71,10 @@ In the VS Code Explorer pane
           ansible_connection: winrm
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
-    ```
-   1. Save, Commit and Sync the inventory file with GitHub
+   ```
+   5. Save, Commit and Sync the inventory file with GitHub
+
+> In the real world we would not want to store the windows credentials in plain text in our inventory file. We will deal with this issue in the vault lab.
 
 ## Verify Each Managed Node Is Accessible
 
