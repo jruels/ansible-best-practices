@@ -74,4 +74,30 @@ That's it! You now have Minikube installed on your Ubuntu system and can start e
 
 
 
+```
+git clone --depth 50 https://github.com/ansible/awx.git
+cd awx/installer
+
+```
+UPdate the inventory
+```
+cp inventory.example inventory
+nano inventory
+```
+
+Set the following values:
+```
+awx_web_hostname=<your_hostname>
+awx_secret_key=<your_secret_key>
+postgres_data_dir=/var/lib/pgdocker
+host_port=80
+```
+
+You can also customize other settings in the inventory file, such as the Docker registry and the number of workers.
+
+Run the installer:
+Run the installer with the following command:
+```
+ansible-playbook -i inventory install.yml
+```
 
