@@ -20,16 +20,16 @@ Perform these steps in VS Code on Windows Target 1
     1. Name the new file 'windows_hosts.yml
     1. Paste the code below into the file
 
-```yaml
-all:
-  hosts:
-    windows_host:
-      ansible_host: <IP address or hostname of the Windows host>
-      ansible_user: <username with administrative privileges on the Windows host>
-      ansible_password: <password for the above user>
-      ansible_connection: winrm
-      ansible_winrm_server_cert_validation: ignore
-```
+    ```yaml
+    all:
+      hosts:
+        windows_host:
+          ansible_host: <IP address or hostname of the Windows host>
+          ansible_user: <username with administrative privileges on the Windows host>
+          ansible_password: <password for the above user>
+          ansible_connection: winrm
+          ansible_winrm_server_cert_validation: ignore
+    ```
 
 Make sure to replace `<IP address or hostname of the Windows host>`, `<username with administrative privileges on the Windows host>`, and `<password for the above user>` with the appropriate values for your Windows host.
 
@@ -38,23 +38,23 @@ Make sure to replace `<IP address or hostname of the Windows host>`, `<username 
 ## Step 2: Run Ad-hoc commands
 In the Ansible Control PuTTY window
 
-2. Update the local files with a Pull
-```
-git pull
-```
+3. Update the local files with a Pull
+  ```
+  git pull
+  ```
 4. Run the following ad-hoc command to check if the Windows host is reachable:
 
-```bash
-ansible windows_host -i windows_hosts.yml -m win_ping
-```
+  ```bash
+  ansible windows_host -i windows_hosts.yml -m win_ping
+  ```
 
 You should see a success message if the Windows host is reachable.
 
-3. Run the following ad-hoc command to get information about the Windows host:
+5. Run the following ad-hoc command to get information about the Windows host:
 
-```bash
-ansible windows_host -i windows_hosts.yml -m setup
-```
+  ```bash
+  ansible windows_host -i windows_hosts.yml -m setup
+  ```
 
 This command will retrieve various information about the Windows host, including hardware and software details, network settings, and more.
 
