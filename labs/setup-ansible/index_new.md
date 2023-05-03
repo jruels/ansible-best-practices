@@ -3,8 +3,8 @@
 In this hands-on lab, we'll install Ansible on a control node and configure two managed servers for use with Ansible. We will also create a simple inventory and run an Ansible command to verify our configuration is correct.
 
 ## Log into the control node
+Perform the following steps in the RPD session to Windows Target 1
 
-1. In the RPD session to Windows Target 1
 1. Launch PuTTY
 1. Load Default settings
 1. Paste ip address (provided by instructor)
