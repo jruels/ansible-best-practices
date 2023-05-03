@@ -7,8 +7,11 @@ On the Ansible Control Host run the following commands
 sudo apt update
 sudo apt upgrade
 
-#Install Docker
-sudo apt install docker-compose
+#Install Docker and other dependencies
+sudo apt install git gcc python3-dev libffi-dev openssl-dev libcurl4-openssl-dev
+sudo apt install docker.io docker-compose
+sudo systemctl enable docker
+sudo systemctl start docker
 
 #Test docker
 sudo docker run hello-world
@@ -68,7 +71,6 @@ minikube service hello-minikube
 This will open a web browser to the exposed service.
 
 That's it! You now have Minikube installed on your Ubuntu system and can start experimenting with Kubernetes.
-
 
 
 
