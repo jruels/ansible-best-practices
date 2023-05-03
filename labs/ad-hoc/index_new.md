@@ -10,8 +10,15 @@ Before starting this lab, you should have the following:
 - A control node with Ansible installed
 
 ## Step 1: Set up the inventory file
+Perform these steps in VS Code on Windows Target 1
 
 1. Create an inventory file named `windows_hosts.yml` in your working directory using the following YAML format:
+  In the VS Code Explorer pane
+
+    1. Right Click in the explporer pane
+    1. Select `New File`
+    1. Name the new file 'windows_hosts.yml
+    1. Paste the code below into the file
 
 ```yaml
 all:
@@ -26,13 +33,16 @@ all:
 
 Make sure to replace `<IP address or hostname of the Windows host>`, `<username with administrative privileges on the Windows host>`, and `<password for the above user>` with the appropriate values for your Windows host.
 
-2. Save the `windows_hosts.yml` file in your working directory.
+2. Save, Commit and Sync the `windows_hosts.yml` file with GitHub in the VS Code Source Control Pane.
 
 ## Step 2: Run Ad-hoc commands
+In the Ansible Control PuTTY window
 
-1. Open a command prompt or terminal on your control node.
-
-2. Run the following ad-hoc command to check if the Windows host is reachable:
+2. Update the local files with a Pull
+```
+git pull
+```
+4. Run the following ad-hoc command to check if the Windows host is reachable:
 
 ```bash
 ansible windows_host -i windows_hosts.yml -m win_ping
