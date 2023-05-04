@@ -1,4 +1,4 @@
-## Error Handling - Introduction
+# Error Handling - Introduction
 
 In this lab, we will explore how to handle errors that may occur while running Ansible playbooks. Specifically, we will focus on how to handle errors related to Windows modules.
 
