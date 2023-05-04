@@ -5,14 +5,13 @@ In this lab, we will explore how to handle errors that may occur while running A
 ### Prerequisites
 
 To complete this lab, you will need:
-
-- An AWS account with Windows instances running
 - An Ansible control node running on a Linux machine
 - Visual Studio Code installed on your local machine
 - An installed Git client
 - Access to an internet connection
 
 ### Step 1: Clone the Ansible-worker Repository
+If you have not done so already
 
 1. Open Visual Studio Code.
 2. In the sidebar, click on the "Source Control" icon (it looks like a branch).
@@ -23,7 +22,7 @@ To complete this lab, you will need:
 
 ### Step 2: Edit the Error Handling Playbook
 
-1. In Visual Studio Code, open the `error_handling.yml` playbook file located in the `labs/error-handling` directory of the cloned repository.
+1. In Visual Studio Code, open the `error_handling.yml` playbook file located in the `labs/error-handling` directory of the ansible-best-practices-windows repository.
 2. Modify the playbook to add error handling for the `win_service` module. Specifically, add a `register` variable to capture the output of the `win_service` module, and add a `failed_when` clause to check for errors.
 3. Save the modified playbook.
 
