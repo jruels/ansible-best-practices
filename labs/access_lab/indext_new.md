@@ -38,7 +38,7 @@ Continue to do the following steps inside of Window Target 1 RDP Session
   1. In the Source Control pain click `Clone Repository`
   1. Paste the URL https://github.com/ProDataMan/ansible-best-practices-windows.git 
   1. Enter your GitHub credentials
-  1. Select the `lab-setup` repository you created earlier
+  1. Select the `ansible-best-practices-windows` repository
   1. In the choose a folder dialog navigate to `c:\GitRepos`
   1. Click the `select as Repository Destination` button
   1. In the Visual Studio Code dialog click the `Open` button to open the repository in VS Code
