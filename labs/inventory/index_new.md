@@ -12,7 +12,7 @@ The objective of this lab exercise is to familiarize yourself with the best prac
 
 This lab requires the following:
 
-- A Windows Server 2019 or Windows 10 host with IIS installed
+- A Windows Server 2019 or Windows Server 2022 host with IIS installed
 - An Ansible control node with the following:
   - Ansible 2.9 or later installed
   - Access to the Windows host via WinRM
@@ -31,6 +31,7 @@ These instructions will guide you through the process of provisioning an IIS (In
 - Pip3 installed on the Windows host
 
 ### Installing Ansible using pip3
+Perform these steps in the RDP Session to Windows Target 1
 
 1. Open a PowerShell terminal as an Administrator.
 2. Run the following command to upgrade pip: 
@@ -46,6 +47,15 @@ These instructions will guide you through the process of provisioning an IIS (In
     ```
 
 ### Inventory File
+Perform the following steps in VS Code on Windows Target 1
+
+In the VS Code Explorer pane:
+
+1. Right Click in the explorer pane
+1. Select `New File`
+1. Name the new file 'inventory_vars.yml'
+1. Paste the code below into the file
+
 
 Create an inventory file with the following content:
 
@@ -63,9 +73,18 @@ all:
 
 Replace `<IP or hostname of the IIS server>` with the IP address or hostname of your IIS server, and replace `<username with administrative privileges>` and `<password for the username>` with the username and password of an account with administrative privileges on the IIS server.
 
+Save, Commit and Sync your changes file with GitHub in the VS Code Source Control Pane.
+
+
 ### Running Ad-hoc Commands
 
 To run ad-hoc commands on the IIS server, use the following command:
+
+First update the local files
+```
+git pull
+```
+
 
 ```bash
 ansible all -i <path to inventory file> -m <module name> -a "<module arguments>"
@@ -90,6 +109,13 @@ ansible-playbook <path to playbook YAML file> -i <path to inventory file>
 Replace `<path to playbook YAML file>` with the path to your playbook YAML file, and `<path to inventory file>` with the path to your inventory file.
 
 For example, to create a playbook that installs IIS using the `win_feature` module, create a YAML file with the following content:
+Remember to create, save and synce the file in VS Code on Windows Target 1
+In the VS Code Explorer pane:
+
+1. Right Click in the explorer pane
+1. Select `New File`
+1. Name the new file 'install_iis.yml'
+1. Paste the code below into the file
 
 ```yml
 - name: Install IIS
@@ -101,10 +127,15 @@ For example, to create a playbook that installs IIS using the `win_feature` modu
         state: present
 ```
 
-Save the file as `install_iis.yml`, and run the following command to execute the playbook:
+Save, commit and sync your changes to GitHub
+
+Run git pull on Ansible Host to update local files
+```bash
+git pull
+```
 
 ```bash
-ansible-playbook install_iis.yml -i inventory.yml
+ansible-playbook install_iis.yml -i inventory_vars.yml
 ```
 
 This will install IIS on the target server.
