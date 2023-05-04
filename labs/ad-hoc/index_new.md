@@ -12,7 +12,7 @@ Before starting this lab, you should have the following:
 ## Step 1: Set up the inventory file
 Perform these steps in VS Code on Windows Target 1
 
-1. Create an inventory file named `windows_hosts.yml` in your working directory using the following YAML format:
+Create an inventory file named `windows_hosts.yml` in your working directory using the following YAML format:
   In the VS Code Explorer pane
 
     1. Right Click in the explporer pane
@@ -33,7 +33,20 @@ Perform these steps in VS Code on Windows Target 1
 
 Make sure to replace `<IP address or hostname of the Windows host>`, `<username with administrative privileges on the Windows host>`, and `<password for the above user>` with the appropriate values for your Windows host.
 
-2. Save, Commit and Sync the `windows_hosts.yml` file with GitHub in the VS Code Source Control Pane.
+### Step 3: Commit and Push Changes to GitHub
+
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the playbook file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Step 4: Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
+
 
 ## Step 2: Run Ad-hoc commands
 In the Ansible Control PuTTY window
