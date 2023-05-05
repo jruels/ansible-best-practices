@@ -21,7 +21,7 @@ In the VS Code Explorer pane
   1. Paste the code below into the file
 
 
-    ```yaml
+    ```
     all:
       hosts:
         windows_host:
