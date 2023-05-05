@@ -20,8 +20,6 @@ In the VS Code Explorer pane
   1. Name the new file 'windows_hosts.yml
   1. Paste the code below into the file
 
-
-    ```
     all:
       hosts:
         windows_host:
@@ -30,7 +28,7 @@ In the VS Code Explorer pane
           ansible_password: <password for the above user>
           ansible_connection: winrm
           ansible_winrm_server_cert_validation: ignore
-    ```
+
 
 Make sure to replace `<IP address or hostname of the Windows host>`, `<username with administrative privileges on the Windows host>`, and `<password for the above user>` with the appropriate values for your Windows host.
 
