@@ -60,7 +60,7 @@ In the VS Code Explorer pane:
 2. In the `Source Control` pane, review the changes you made to the file.
 3. Enter a commit message that describes the changes you made.
 4. Click the checkmark icon to commit the changes.
-5. Click on the "..." menu in the `Source Control` pane, and select `Push` to push the changes to GitHub.
+5. Click on the `...` menu in the `Source Control` pane, and select `Push` to push the changes to GitHub.
 
 ## Update the Ansible Control Host
 
