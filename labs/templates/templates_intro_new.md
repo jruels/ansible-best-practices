@@ -50,7 +50,7 @@ In the VS Code Explorer pane:
        - name: Generate config file from template
          template:
            src: templates/config.j2
-           dest: C:\Users\Administrator\config.conf
+           dest: C:\inetpub\wwwroom\web.config
          vars_files:
            - config.yml
    ```
@@ -73,6 +73,6 @@ In the VS Code Explorer pane:
 Run the `generate_config.yml` playbook against the `Windows Target 1` host using the following command:
 
    ```
-   ansible-playbook generate_config.yml
+   ansible-playbook ../inventory_simple.yml generate_config.yml
    ```
 Verify that the `config.conf` file was created on the `Windows Target 1` host with the correct content.
