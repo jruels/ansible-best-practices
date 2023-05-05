@@ -64,14 +64,14 @@ In the VS Code Explorer pane:
     webservers:
       hosts:
         webserver1:
-          ansible_host: 52.53.151.241
+          ansible_host: <ip address provided>
           ansible_user: Administrator
           ansible_password: JustM300
           ansible_connection: winrm
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
         webserver2:
-          ansible_host: 54.183.197.81
+          ansible_host: <ip address provided>
           ansible_user: Administrator
           ansible_password: JustM300
           ansible_connection: winrm
