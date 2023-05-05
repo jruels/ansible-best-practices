@@ -78,11 +78,23 @@ In the VS Code Explorer pane:
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
     ```
-       
-5. Save, Commit and Sync the inventory file with GitHub
-    
+          
 > In the real world we would not want to store the windows credentials in plain text in our inventory file. We will deal with this issue in the vault lab.    
     
+### Commit and Push Changes to GitHub
+
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
+
 ## Verify Each Managed Node Is Accessible
 
 Here we will attempt to verify each managed node is able to be accessed by Ansible from the control node using the `win_ping` module.
