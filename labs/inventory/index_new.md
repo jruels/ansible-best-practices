@@ -30,22 +30,6 @@ These instructions will guide you through the process of provisioning an IIS (In
 - Python 3 installed on the Windows host
 - Pip3 installed on the Windows host
 
-### Installing Ansible using pip3
-Perform these steps in the RDP Session to Windows Target 1
-
-1. Open a PowerShell terminal as an Administrator.
-2. Run the following command to upgrade pip: 
-
-    ```powershell
-    python -m pip install --upgrade pip
-    ```
-
-3. Run the following command to install Ansible using pip3:
-
-    ```powershell
-    pip3 install ansible
-    ```
-
 ### Inventory File
 Perform the following steps in VS Code on Windows Target 1
 
@@ -131,7 +115,11 @@ For example, to run the `win_command` module to execute the `dir` command on the
 ```bash
 ansible all -i inventory.yml -m win_command -a "cmd='dir'"
 ```
+Or `win_feature` to install the `web-server` feature (IIS)
 
+```
+ansible all - inventory.yml -m win_feature -a "Web-Server"
+```
 ### Running Playbooks
 
 To run a playbook on the IIS server, create a YAML file with the playbook content, and run the following command:
