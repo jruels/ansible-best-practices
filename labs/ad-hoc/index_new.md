@@ -13,12 +13,13 @@ Before starting this lab, you should have the following:
 Perform these steps in VS Code on Windows Target 1
 
 Create an inventory file named `windows_hosts.yml` in your working directory using the following YAML format:
-  In the VS Code Explorer pane
+In the VS Code Explorer pane
 
-    1. Right Click in the explporer pane
-    1. Select `New File`
-    1. Name the new file 'windows_hosts.yml
-    1. Paste the code below into the file
+  1. Right Click in the explporer pane
+  1. Select `New File`
+  1. Name the new file 'windows_hosts.yml
+  1. Paste the code below into the file
+
 
     ```yaml
     all:
@@ -33,7 +34,7 @@ Create an inventory file named `windows_hosts.yml` in your working directory usi
 
 Make sure to replace `<IP address or hostname of the Windows host>`, `<username with administrative privileges on the Windows host>`, and `<password for the above user>` with the appropriate values for your Windows host.
 
-### Step 3: Commit and Push Changes to GitHub
+### Step 2: Commit and Push Changes to GitHub
 
 1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
 2. In the "Source Control" pane, review the changes you made to the playbook file.
@@ -41,21 +42,17 @@ Make sure to replace `<IP address or hostname of the Windows host>`, `<username 
 4. Click the checkmark icon to commit the changes.
 5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
 
-## Step 4: Update the Ansible Control Host
+## Step 3: Update the Ansible Control Host
 
 1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
 2. Navigate to the directory where you cloned repository.
 3. Run `git pull` to update the repository on the control host.
 
 
-## Step 2: Run Ad-hoc commands
+## Step 4: Run Ad-hoc commands
 In the Ansible Control PuTTY window
 
-3. Update the local files with a Pull
-  ```
-  git pull
-  ```
-4. Run the following ad-hoc command to check if the Windows host is reachable:
+1. Run the following ad-hoc command to check if the Windows host is reachable:
 
   ```bash
   ansible windows_host -i windows_hosts.yml -m win_ping
@@ -63,7 +60,7 @@ In the Ansible Control PuTTY window
 
 You should see a success message if the Windows host is reachable.
 
-5. Run the following ad-hoc command to get information about the Windows host:
+2. Run the following ad-hoc command to get information about the Windows host:
 
   ```bash
   ansible windows_host -i windows_hosts.yml -m setup
@@ -71,7 +68,7 @@ You should see a success message if the Windows host is reachable.
 
 This command will retrieve various information about the Windows host, including hardware and software details, network settings, and more.
 
-4. Run the following ad-hoc command to get a list of installed packages on the Windows host:
+3. Run the following ad-hoc command to get a list of installed packages on the Windows host:
 
 ```bash
 ansible windows_host -i windows_hosts.yml -m win_package -a "list=1"
@@ -79,7 +76,7 @@ ansible windows_host -i windows_hosts.yml -m win_package -a "list=1"
 
 This command will retrieve a list of all installed packages on the Windows host.
 
-5. Run the following ad-hoc command to install a package on the Windows host:
+4. Run the following ad-hoc command to install a package on the Windows host:
 
 ```bash
 ansible windows_host -i windows_hosts.yml -m win_package -a "name=<package_name> state=present"
@@ -87,7 +84,7 @@ ansible windows_host -i windows_hosts.yml -m win_package -a "name=<package_name>
 
 Replace `<package_name>` with the name of the package you want to install.
 
-6. Run the following ad-hoc command to uninstall a package from the Windows host:
+5. Run the following ad-hoc command to uninstall a package from the Windows host:
 
 ```bash
 ansible windows_host -i windows_hosts.yml -m win_package -a "name=<package_name> state=absent"
