@@ -10,16 +10,20 @@ In this lab, you will learn how to use Ansible to manage Windows hosts using the
 
 3. A user account on the Windows host with administrative privileges. The user account should have a strong password, and you should have the credentials for the account.
 
-4. The `pywinrm` module installed on the Ansible control node. You can install it using the following command:
-   ```
-   pip3 install pywinrm
-   ```
 
 ### Setting up the Inventory File
+Perform the following steps on Windows Target 1 in VS Code
+In the VS Code Explorer pane:
 
-1. Create a new file named `inventory.yml` and open it in your preferred text editor.
+1. Right Click in the explorer pane
 
-2. Define the Windows host details in the inventory file in the following format:
+2. Select `New File`
+
+3. Enter the name and content details below:
+
+4. Create a new file named `inventory_simple.yml` and open it in your preferred text editor.
+
+5. Define the Windows host details in the inventory file in the following format:
 
    ```
    all:
@@ -35,15 +39,16 @@ In this lab, you will learn how to use Ansible to manage Windows hosts using the
 
    Note: If your Windows host is on a domain, you can use the `ansible_domain_username` and `ansible_domain_password` parameters instead of `ansible_user` and `ansible_password`.
 
-3. Save the `inventory.yml` file.
-
 ### Running the Ansible Playbook
+In the VS Code Explorer pane:
 
-1. Create a new directory named `playbook-fun` and change to the directory.
-
-2. Create a new file named `playbook.yml` in the `playbook-fun` directory and open it in your preferred text editor.
-
-3. Copy the following YAML code to the `playbook.yml` file:
+1. Right Click in the explorer pane
+1.. Select `New Directory`
+1. Create a new directory named `playbook-fun`
+1. Right Click in the explorer pane
+1. Select 'New File'
+1. Enter `playbook.yml` as the name:
+1. Copy the following YAML code to the `playbook.yml` file:
 
    ```
    ---
@@ -57,16 +62,30 @@ In this lab, you will learn how to use Ansible to manage Windows hosts using the
    ```
    This playbook contains a single task that runs a PowerShell command on the Windows host to display "Hello World" in the console.
 
-4. Save the `playbook.yml` file.
+### Commit and Push Changes to GitHub
 
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
 5. Run the playbook using the following command:
+
+## Run the Playbook
+
    ```
    ansible-playbook -i inventory.yml playbook.yml
    ```
 
    This command will run the `playbook.yml` playbook against the Windows host defined in the `inventory.yml` file.
 
-6. Verify that the playbook has run successfully by checking the output in the console. You should see "Hello World" displayed in the console.
+   Verify that the playbook has run successfully by checking the output in the console. You should see "Hello World" displayed in the console.
 
 Congratulations! You have successfully run an Ansible playbook on a Windows host.
 
