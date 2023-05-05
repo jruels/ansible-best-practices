@@ -24,7 +24,7 @@ If you have not done so already
 
 1. In Visual Studio Code, open the `error_handling.yml` playbook file located in the `labs/error-handling` directory of the ansible-best-practices-windows repository.
 2. Modify the playbook to add error handling for the `win_service` module. Specifically, add a `register` variable to capture the output of the `win_service` module, and add a `failed_when` clause to check for errors.
-3. Save the modified playbook.
+3. Save the modified playbook to the `ansible-working` repository (c:\GitRepos\ansible-working).
 
 ### Step 3: Commit and Push Changes to GitHub
 
