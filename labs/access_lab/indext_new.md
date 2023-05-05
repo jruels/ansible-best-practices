@@ -9,7 +9,7 @@ Download `Remote Desktop` from the `Microsoft`
 Connect to remote computer user ip address provided
 
 ## Windows 
-Connect to remote computer user ip address provided
+Connect to remote computer with Remote Desktop with ip address provided
 
 ## All
 
