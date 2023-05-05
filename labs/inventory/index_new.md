@@ -73,18 +73,23 @@ all:
 
 Replace `<IP or hostname of the IIS server>` with the IP address or hostname of your IIS server, and replace `<username with administrative privileges>` and `<password for the username>` with the username and password of an account with administrative privileges on the IIS server.
 
-Save, Commit and Sync your changes file with GitHub in the VS Code Source Control Pane.
+### Commit and Push Changes to GitHub
 
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
 
 ### Running Ad-hoc Commands
 
 To run ad-hoc commands on the IIS server, use the following command:
-
-First update the local files
-```
-git pull
-```
-
 
 ```bash
 ansible all -i <path to inventory file> -m <module name> -a "<module arguments>"
@@ -110,6 +115,7 @@ Replace `<path to playbook YAML file>` with the path to your playbook YAML file,
 
 For example, to create a playbook that installs IIS using the `win_feature` module, create a YAML file with the following content:
 Remember to create, save and synce the file in VS Code on Windows Target 1
+
 In the VS Code Explorer pane:
 
 1. Right Click in the explorer pane
@@ -127,12 +133,20 @@ In the VS Code Explorer pane:
         state: present
 ```
 
-Save, commit and sync your changes to GitHub
+### Commit and Push Changes to GitHub
 
-Run git pull on Ansible Host to update local files
-```bash
-git pull
-```
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
+4. Execute the playbook.
 
 ```bash
 ansible-playbook install_iis.yml -i inventory_vars.yml
