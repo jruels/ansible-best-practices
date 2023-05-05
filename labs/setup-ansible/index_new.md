@@ -146,7 +146,8 @@ In the VS Code Explorer pane:
   # Turn on PowerShell Remoting
   Enable-PSRemoting -Force
   # Restart WinRM
-  Restart-Service winrmRepeat these steps for `Windows Target 2`
+  Restart-Service winrm
+  #Repeat these steps for `Windows Target 2
   ```
     
 5. Execute the Script 
