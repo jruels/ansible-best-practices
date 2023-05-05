@@ -12,9 +12,15 @@ In this lab, you will learn how to use Ansible's template module to create confi
 
 ### Lab Steps:
 
-1. Connect to the "Windows Target 1" instance using RDP and open PowerShell as an administrator.
-2. In the cloned repository, create a new directory named "templates".
-3. In the "templates" directory, create a new file named "config.j2" and add the following content:
+In the VS Code Explorer pane:
+
+1. Right Click in the explorer pane
+1. Select `New Directory`
+1. Create a new directory named `template` and press enter
+1. Right Click on the template folder in the explorer pane
+1. Select 'New File'
+1. Enter `config.j2` as the name:
+1. Copy the following content to the file:
 
    ```
    # This is a configuration file generated from a Jinja2 template
@@ -28,14 +34,14 @@ In this lab, you will learn how to use Ansible's template module to create confi
    {% endif %}
    ```
 
-4. In the cloned repository, create a new file named "config.yml" and add the following content:
+4. Right click and select New File to create a new file named "config.yml" and add the following content:
 
    ```
    ---
    config_type: "production"
    ```
 
-5. Create a new playbook file named "generate_config.yml" and add the following content:
+5. Right Click and select New File to create a new playbook file named "generate_config.yml" and add the following content:
 
    ```
    - name: Generate config file
@@ -48,15 +54,25 @@ In this lab, you will learn how to use Ansible's template module to create confi
          vars_files:
            - config.yml
    ```
+### Commit and Push Changes to GitHub
 
-6. Save all changes to the repository and commit them using the Source Control pane in Visual Studio Code.
-7. Push the changes to the "ansible-working" repository on GitHub using the Source Control pane in Visual Studio Code.
-8. Switch to the Ansible control host and navigate to the directory where the "ansible-working" repository was cloned.
-9. Use the "git pull" command to update the cloned repository with the latest changes.
-10. Run the "generate_config.yml" playbook against the "Windows Target 1" host using the following command:
+1. In the sidebar, click on the "Source Control" icon (it looks like a branch).
+2. In the "Source Control" pane, review the changes you made to the file.
+3. Enter a commit message that describes the changes you made.
+4. Click the checkmark icon to commit the changes.
+5. Click on the "..." menu in the "Source Control" pane, and select "Push" to push the changes to GitHub.
+
+## Update the Ansible Control Host
+
+1. Return to the connection to your Ansible control host in PuTTY on Windows Target 1.
+2. Navigate to the directory where you cloned repository.
+3. Run `git pull` to update the repository on the control host.
+
+## Run the Playbook
+
+Run the "generate_config.yml" playbook against the "Windows Target 1" host using the following command:
 
    ```
    ansible-playbook generate_config.yml
    ```
-
-11. Verify that the "config.conf" file was created on the "Windows Target 1" host with the correct content.
+Verify that the "config.conf" file was created on the "Windows Target 1" host with the correct content.
