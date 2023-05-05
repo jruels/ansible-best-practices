@@ -43,7 +43,7 @@ In the VS Code Explorer pane:
 In the VS Code Explorer pane:
 
 1. Right Click in the explorer pane
-1.. Select `New Directory`
+1. Select `New Directory`
 1. Create a new directory named `playbook-fun`
 1. Right Click in the explorer pane
 1. Select 'New File'
