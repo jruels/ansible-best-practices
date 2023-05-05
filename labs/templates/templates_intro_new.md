@@ -18,7 +18,7 @@ In the VS Code Explorer pane:
 1. Select `New Directory`
 1. Create a new directory named `template` and press enter
 1. Right Click on the template folder in the explorer pane
-1. Select 'New File'
+1. Select `New File`
 1. Enter `config.j2` as the name:
 1. Copy the following content to the file:
 
