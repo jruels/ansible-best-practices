@@ -27,8 +27,6 @@ Use Remote Desktop to remote into Windows Target 1 (ip address provided)
   5. Enter `JustM300` as the password
   6. Click `Yes`
 
-Repeat these steps to Open a RDP Session to Target 2 while keeping this session open
-
 ## Clone the ClassFiles Repo
 
 Continue to do the following steps inside of Window Target 1 RDP Session
