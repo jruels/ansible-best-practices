@@ -18,7 +18,7 @@ sudo dnf install ansible-core -y
 
 Next, we'll add a new `ansible` user to each node. This user will be used for running `ansible` tasks. 
 
-On the managed node run: 
+On the Controller node run: 
 ```
 sudo useradd ansible
 ```
