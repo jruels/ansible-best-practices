@@ -18,6 +18,7 @@ Before we begin, we need to clone the lab directory, and install some community 
 Clone the lab directory
 
 ```
+cd /home/ansible
 git clone https://github.com/jruels/ansible-best-practices.git
 ```
 
