@@ -1,26 +1,30 @@
 # Lab Setup 
-The login credentials for SSH are    
-
-Username: `student`
-
-Password: `P@$$w0rd2023$`
+The username for SSH is    
+`ec2-user`
 
 ## MacOS 
-### SSH to lab servers
+Download `lab.pem` from the `keys` directory
 
-Log in with the credentials from above. 
-
+### Set permission on SSH key 
 ```
-ssh <user>@<LAB IP> 
+chmod 600 /path/to/lab.pem
+```
+
+### SSH to lab servers 
+```
+ssh -i /path/to/lab.pem <user>@<LAB IP> 
 ```
 
 
 ## Windows 
-Open Putty and configure a new session for each host.
+Download `lab.ppk` from `keys` directory
 
-Log in with the credentials from above.
+Open Putty and configure a new session. 
 
 ![](index/C4EC1E64-175D-4C84-8C49-D938337FA35A.png)
+
+Expand “Connection_SSH_Auth and then specify the PPK file 
+![](index/6FFB137C-1AD8-48A1-97E6-F5F6DA4BC55B.png)
 
  Now save your session    
 
