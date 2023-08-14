@@ -1,5 +1,6 @@
 # Lab Setup 
 The login credentials for SSH are    
+
 Username: `student`
 
 Password: `P@$$w0rd2023$`
