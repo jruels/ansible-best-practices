@@ -67,9 +67,7 @@ Click [Here](https://access.redhat.com/downloads/content/480) to download the An
 
 * Log in to the portal 
 
-* At the top change the Version to `2.2 for RHEL 8`
-
-  ![image-20220913012736465](images/image-20220913012736465.png)
+* At the top, change the Version to the latest for `RHEL 8`
 
 * Click the "Download Now" link on the "Bundle" installer
 
@@ -136,7 +134,7 @@ tar -zxvf ansible-automation-platform-setup-*.tar.gz
 Enter directory 
 
 ```bash
-cd ansible-automation-platform-setup-2.2.1-1
+cd ansible-automation-platform-setup-<version>
 ```
 
 
@@ -165,7 +163,15 @@ ping aap.localhost.com
 
 
 
-Copy and paste this sample inventory.
+Delete the original inventory file
+
+```bash
+rm -rf inventory
+```
+
+
+
+Create a new `inventory` file and paste the following into it.
 
 ```
 [automationcontroller]
@@ -190,7 +196,6 @@ registry_password='eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJlZTBmNDllNzE1ZWQ0MmQ3YjZkNzk2
 
 Set the following in the `inventory` file (if not already completed) 
 
-* Change `127.0.0.1` to `aap.localhost.com`
 * admin password = Password1234   
 * pg_password = Password1234   
 * registry_username = The username generated earlier in the lab (i.e 15765574|ansible-tower)   
