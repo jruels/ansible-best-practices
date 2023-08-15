@@ -121,7 +121,7 @@ Now, we'll configure sudo access for Ansible on `node1` and `node2` such that An
 Log in to each managed node as `ec2-user` and edit the `sudoers` file to contain appropriate access for the `ansible` user:
 
 ```
-ssh ec2-user@node1 
+ssh ec2-user@<IP of node1 from spreadsheet> 
 sudo visudo 
 ```
 
