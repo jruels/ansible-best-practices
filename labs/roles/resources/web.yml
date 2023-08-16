@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: install httpd
-      apt: name=httpd state=latest
+      yum: name=httpd state=latest
     - name: start and enable httpd
       service: name=httpd state=started enabled=yes
 
