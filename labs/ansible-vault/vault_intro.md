@@ -38,7 +38,7 @@ Use `ansible-vault` to encrypt `/home/ansible/ansible-best-practices/labs/ansibl
 Run 
 ```
 ansible-vault encrypt /home/ansible/ansible-best-practices/labs/ansible-vault/conf/confidential
-``` 
+```
 and supply the password "I love ansible".
 
 ### Create a playbook that deploys httpd on webservers
@@ -187,7 +187,6 @@ Confirm the following:
 * Playbook execution prompts for vault password
 * Playbook completes successfully
 * `/opt/data-job.sh` is running on both nodes
-* Apache returns a `401 Unauthorized` status
 
 ## Congrats!
 
