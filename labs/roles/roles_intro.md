@@ -199,14 +199,13 @@ mkdir roles
 5. Add the following to the file:
 
    ```yaml
-   
    - name: set up noc user and key
      import_tasks: deploy_noc_user.yml
    ```
-
    
 
-   Save and exit with **Escape** followed by `:wq`.
+   
+Save and exit with **Escape** followed by `:wq`.
 
 ### Edit `web.yml` to Deploy the `baseline` Role
 
