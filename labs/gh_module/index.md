@@ -46,7 +46,7 @@ The custom module lives in the `library` directory and has the name we will be c
 Add the following to `github_repo.py`
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from ansible.module_utils.basic import *
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 **Notes** 
 
 * `main()` is the entrypoint into the module.
-* `#!/user/bin/python` is required. Do not forget it! 
+* `#!/user/bin/python3` is required. Do not forget it! 
 * `AnsibleModule` comes from `from ansible.module_utils.basic import *`. It is imported with the `*`
 * `AnsibleModule` handles incoming and outgoing parameters.
 
@@ -176,13 +176,14 @@ ansible-playbook play.yml
 
 Ansible recommends adding documentation with examples of using the module. At the top of the module add: 
 ```yml
-DOCUMENTATION = '''
+DOCUMENTATION = r'''
 ---
 module: github_repo
-short_description: Manage your repos on Github
+
+short_description: This module manages GitHub repositories
 '''
 
-EXAMPLES = '''
+EXAMPLES = r'''
 - name: Create a github Repo
   github_repo:
     github_auth_key: "..."
@@ -320,10 +321,9 @@ Here is a sample of what that might look like:
 - hosts: localhost
   vars:
     - github_token: "YOUR TOKEN HERE"
-    - ansible_python_interpreter: "/usr/bin/python3"
   tasks:
     - name: Create a GitHub Repo
-      gh_repo:
+      github_repo:
         github_auth_key: {% raw %} "{{github_token}}" {% endraw %}
         username: "YOUR GITHUB USERNAME HERE"
         name: "Hello-World"
@@ -342,7 +342,7 @@ Update the playbook with the following task to delete the repository. Remember t
 
 ```yml
     - name: Delete GitHub Repo
-      gh_repo:
+      github_repo:
         github_auth_key: {% raw %} "{{github_token}}" {% endraw %}
         username: "YOUR GITHUB USERNAME HERE"
         name: "Hello-World"
@@ -354,5 +354,4 @@ The above playbook declares the `github_token` variable in plain text. This is n
 Use `ansible-vault` to create an encrypted variable for `github_token`, and update the playbook to use it. 
 
 ## Congrats 
-
 
