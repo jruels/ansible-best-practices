@@ -154,17 +154,17 @@ Update the playbook with some more fields:
 
 ```yml
 - name: Create a github Repo
-      github_repo:
-        github_auth_key: "..."
-        username: "YOUR GITHUB USERNAME HERE"
-        name: "Hello-World"
-        description: "This is your first repository"
-        private: yes
-        has_issues: no
-        has_wiki: no
-        has_downloads: no
-        state: present
-      register: result
+  github_repo:
+    github_auth_key: "..."
+    username: "YOUR GITHUB USERNAME HERE"
+    name: "Hello-World"
+    description: "This is your first repository"
+    private: yes
+    has_issues: no
+    has_wiki: no
+    has_downloads: no
+    state: present
+    register: result
 ```
 
 Run the playbook and it will display a dictionary of inputs passed in. 
