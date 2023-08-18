@@ -65,7 +65,7 @@ awx --help
 And then test something, e.g. (leave out **-f human** if you’re a JSON fan)
 
 ```bash
-awx -f human user list
+awx -f human projets list
 ```
 
 
