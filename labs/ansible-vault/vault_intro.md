@@ -152,7 +152,9 @@ Add the following text to `webserver.yml` just **before** the handler section:
         - vhost
     - name: copy data job to all hosts
       copy:
+      { %raw %}
         src: "{{ lookup('env', 'HOME') }}/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
+      { %endraw% }
         dest: /opt/data-job.sh
         mode: 755
     - name: run data job
