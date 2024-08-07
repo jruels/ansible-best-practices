@@ -102,7 +102,7 @@ Add the following task to the `webserver.yml` **after* the `configure site auth`
 ```yaml
     - name: copy data job to all hosts
       copy:
-        src: "{{ lookup('env', 'HOME') }}/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
+        src: "/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
         dest: /opt/data-job.sh
         mode: 775
 ```
@@ -152,9 +152,7 @@ Add the following text to `webserver.yml` just **before** the handler section:
         - vhost
     - name: copy data job to all hosts
       copy:
-      { %raw %}
-        src: "{{ lookup('env', 'HOME') }}/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
-      { %endraw% }
+        src: "/home/ansible/ansible-best-practices/labs/ansible-vault/bin/data-job.sh"
         dest: /opt/data-job.sh
         mode: 755
     - name: run data job
